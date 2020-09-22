@@ -11,9 +11,9 @@ router.post('/authenticate', function (req, res) {
   const username = req.session.data['user-username']
 
   if (username === 'mca') {
-    res.redirect('/mca')
+    res.redirect('/dashboard-mca')
   } else if (username === 'dft') {
-    res.redirect('/dft')
+    res.redirect('/dashboard-dft')
   }
 })
 
