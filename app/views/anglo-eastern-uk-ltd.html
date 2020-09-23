@@ -33,10 +33,12 @@
         Anglo Eastern (UK) Ltd
       </h1>
 
-
+      <h2 class="govuk-heading-l">
+        Claims by category
+      </h2>
 
       {% set category1html %}
-      <h2 class="govuk-heading-l">Claims by category 1</h2>
+      <h2 class="govuk-heading-m">Claims by calendar year 2020</h2>
       {{ govukTable({
         firstCellIsHeader: true,
         head: [
@@ -93,7 +95,7 @@
       {% endset -%}
 
       {% set category2html %}
-      <h2 class="govuk-heading-l">Claims by category 2</h2>
+      <h2 class="govuk-heading-m">Claims by financial year 2020-21</h2>
       {{ govukTable({
         firstCellIsHeader: true,
         head: [
@@ -154,14 +156,14 @@
       {{ govukTabs({
         items: [
           {
-            label: "Category 1",
+            label: "Calendar year",
             id: "category-1",
             panel: {
               html: category1html
             }
           },
           {
-            label: "Category 2",
+            label: "Financial year",
             id: "category-2",
             panel: {
               html: category2html
