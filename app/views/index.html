@@ -11,39 +11,15 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-half">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Sign in to {{serviceName}}
+        {{serviceName}} prototypes
       </h1>
 
-      <form class="form" action="/authenticate" method="post">
-
-        {{ govukInput({
-          label: {
-            text: "Email",
-            classes: "govuk-label",
-            isPageHeading: false
-          },
-          id: "user-username",
-          name: "user-username"
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Password",
-            classes: "govuk-label",
-            isPageHeading: false
-          },
-          id: "user-password",
-          name: "user-password",
-          type: "password"
-        }) }}
-
-        {{ govukButton({
-          text: "Sign in"
-        }) }}
-
-      </form>
+      <ul class="govuk-list">
+        <li><a href="#">Onboarding</a></li>
+        <li><a href="reporting/sign-in">Reporting</a></li>
+      </ul>
 
     </div>
   </div>
