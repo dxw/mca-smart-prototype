@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
 {% block pageTitle %}
   {{serviceName}}
 {% endblock %}
@@ -12,7 +14,7 @@
         href: "trainees"
       },
       {
-        text: "Trainee ID: TRA008366"
+        text: "Trainee ID: QQ123456D"
       }
     ]
   }) }}
@@ -24,7 +26,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <span class="govuk-caption-xl">View a trainee</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Trainee ID: TRA008366</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Trainee ID: QQ123456D</h1>
 
     </div>
   </div>
@@ -47,5 +49,46 @@
   </div>
 
   <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Start date"
+        },
+        value: {
+          text: "5 October 2020"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "start date"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Contact details"
+        },
+        value: {
+          html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "contact details"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
 
 {% endblock %}
