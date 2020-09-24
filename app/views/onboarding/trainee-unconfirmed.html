@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "All trainees",
+        href: "trainees"
+      },
+      {
+        text: "Trainee ID: TRA008365"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">View a trainee</span>
+      <h1 class="govuk-heading-xl">Trainee ID: TRA008365</h1>
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Confirmation incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">The trainee has completed 2 of 3 sections.</p>
+
+      <ol class="app-task-list">
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span> Initial contact
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="eligibility-status">
+                  Invitation email read and confirmed
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag--green" id="eligibility-status">Complete</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Trainee verification
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="eligibility-status">
+                  Proof of identity uploaded
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag--green" id="eligibility-status">Complete</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="eligibility-status">
+                  Proof of address uploaded
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag--red" id="eligibility-status">Incomplete</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> Passport number consent
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="eligibility-status">
+                  Consent for use of passport number given
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag--red" id="eligibility-status">Incomplete</strong>
+            </li>
+          </ul>
+        </li>
+
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}

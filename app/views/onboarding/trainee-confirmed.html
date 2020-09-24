@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "All trainees",
+        href: "trainees"
+      },
+      {
+        text: "Trainee ID: TRA008366"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">View a trainee</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Trainee ID: TRA008366</h1>
+
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-xl govuk-!-margin-bottom-0">12</h2>
+      <span class="govuk-caption-m govuk-!-margin-bottom-3">Weeks of training booked</span>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-xl govuk-!-margin-bottom-0">50%</h2>
+      <span class="govuk-caption-m govuk-!-margin-bottom-3">Expected completion to date</span>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-xl govuk-!-margin-bottom-0 warning-text">45%</h2>
+      <span class="govuk-caption-m govuk-!-margin-bottom-3">Declared completion to date</span>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+{% endblock %}
