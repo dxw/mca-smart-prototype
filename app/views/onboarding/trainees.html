@@ -1,0 +1,81 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Trainees
+      </h1>
+
+
+      {{ govukButton({
+        text: "Add a trainee"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {{ govukTable({
+        caption: "All trainees",
+        captionClasses: "govuk-heading-m",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Trainee ID"
+          },
+          {
+            text: "Programme"
+          },
+          {
+            text: "Start date"
+          },
+          {
+            text: "Sponsoring company"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='#'>TRA008365</a>"
+            },
+            {
+              text: "Sem Magna"
+            },
+            {
+              text: "20 Oct 2020"
+            },
+            {
+              text: "Tortor Inceptos Ltd"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>TRA008366</a>"
+            },
+            {
+              text: "Sem Magna"
+            },
+            {
+              text: "20 Oct 2020"
+            },
+            {
+              text: "Tortor Inceptos Ltd"
+            }
+          ]
+        ]
+      }) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}

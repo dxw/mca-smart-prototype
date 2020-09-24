@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <h1 class="govuk-heading-xl">
+        Sign in to {{serviceName}}
+      </h1>
+
+      <form class="form" action="trainees" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Email",
+            classes: "govuk-label",
+            isPageHeading: false
+          },
+          id: "user-username",
+          name: "user-username"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Password",
+            classes: "govuk-label",
+            isPageHeading: false
+          },
+          id: "user-password",
+          name: "user-password",
+          type: "password"
+        }) }}
+
+        {{ govukButton({
+          text: "Sign in"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
