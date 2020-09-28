@@ -3,7 +3,7 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-router.post('/reporting/auth', function (req, res) {
+router.post('/auth', function (req, res) {
   // Get the answer from session data
   // The name between the quotes is the same as the 'name' attribute on the input elements
   // However in JavaScript we can't use hyphens in variable names
@@ -11,9 +11,9 @@ router.post('/reporting/auth', function (req, res) {
   const username = req.session.data['user-username']
 
   if (username === 'mca') {
-    res.redirect('/reporting/dashboard-mca')
+    res.redirect('dashboard-mca')
   } else {
-    res.redirect('/reporting/dashboard-tp')
+    res.redirect('dashboard-tp')
   }
 })
 

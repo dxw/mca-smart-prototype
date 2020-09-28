@@ -1,0 +1,110 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    navigation: [
+      {
+        href: "dashboard-mca",
+        text: "Training providers"
+      },
+      {
+        href: "cadets-mca",
+        text: "Cadets",
+        active: true
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        All cadets
+      </h1>
+
+
+      {{ govukButton({
+        text: "Add a trainee",
+        href: "new-trainee"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {{ govukTable({
+        caption: "All trainees",
+        captionClasses: "govuk-heading-m",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Trainee ID"
+          },
+          {
+            text: "Start date"
+          },
+          {
+            text: "Programme"
+          },
+          {
+            text: "Sponsoring company"
+          },
+          {
+            text: "Status"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='trainee-unconfirmed'>QQ123456C</a>"
+            },
+            {
+              text: "20 Oct 2020"
+            },
+            {
+              text: "Sem Magna"
+            },
+            {
+              text: "Tortor Inceptos Ltd"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--red'>unconfirmed</strong>"
+            }
+          ],
+          [
+            {
+              html: "<a href='trainee-confirmed'>QQ123457D</a>"
+            },
+            {
+              text: "20 Oct 2020"
+            },
+            {
+              text: "Sem Magna"
+            },
+            {
+              text: "Tortor Inceptos Ltd"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--green'>confirmed</strong>"
+            }
+          ]
+        ]
+      }) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}

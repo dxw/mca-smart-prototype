@@ -11,7 +11,6 @@
   {{serviceName}}
 {% endblock %}
 
-
 {% block header %}
   {{ govukHeader({
     homepageUrl: "/",
@@ -19,17 +18,13 @@
     serviceUrl: "/",
     navigation: [
       {
-        href: "/reporting/dashboard-mca",
+        href: "dashboard-mca",
         text: "Training providers",
         active: true
       },
       {
-        href: "/onboarding/trainees",
+        href: "cadets-mca",
         text: "Cadets"
-      },
-      {
-        href: "/",
-        text: "Sign out"
       }
     ]
   }) }}
@@ -42,9 +37,6 @@
       <h1 class="govuk-heading-xl">
         Training providers
       </h1>
-
-
-
 
       {% set trainingProviders %}
       <h2 class="govuk-heading-m">All current training providers</h2>
