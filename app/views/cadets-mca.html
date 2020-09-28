@@ -4,6 +4,7 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
 {% block pageTitle %}
   {{serviceName}}
@@ -117,6 +118,16 @@
       {{ govukButton({
         text: "Add a cadet",
         href: "new-cadet-mca"
+      }) }}
+
+      <p class="govuk-heading-s">Or:</p>
+
+      {{ govukFileUpload({
+        id: "file-upload-1",
+        name: "file-upload-1",
+        label: {
+          text: "Upload a spreadsheet of cadets"
+        }
       }) }}
 
 
