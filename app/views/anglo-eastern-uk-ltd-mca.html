@@ -13,11 +13,30 @@
   {{serviceName}} - Anglo Eastern (UK) Ltd
 {% endblock %}
 
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    navigation: [
+      {
+        href: "dashboard-mca",
+        text: "Training providers",
+        active: true
+      },
+      {
+        href: "cadets-mca",
+        text: "Cadets"
+      }
+    ]
+  }) }}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukBreadcrumbs({
     items: [
       {
-        text: "All claims",
+        text: "Training providers",
         href: "dashboard-mca"
       },
       {
