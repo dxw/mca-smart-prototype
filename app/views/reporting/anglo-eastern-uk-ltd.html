@@ -6,6 +6,8 @@
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/tabs/macro.njk" import govukTabs %}
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block pageTitle %}
   {{serviceName}} - Anglo Eastern (UK) Ltd
@@ -32,236 +34,164 @@
       <h1 class="govuk-heading-xl">
         Anglo Eastern (UK) Ltd
       </h1>
+    </div>
+  </div>
 
-      <h2 class="govuk-heading-l">
-        Claims by category
-      </h2>
+  <div class="govuk-grid-row">
 
-      {% set category1html %}
-      <h2 class="govuk-heading-m">Claims by calendar year 2020</h2>
-      {{ govukTable({
-        firstCellIsHeader: true,
-        head: [
-          {
-            text: "Claim ID"
+    <div class="govuk-grid-column-one-third">
+
+      <div class="filter-section">
+
+        <h1 class="govuk-heading-s">
+          Refine this list using filters
+        </h1>
+
+        {{ govukSelect({
+          id: "training",
+          name: "training",
+          label: {
+            text: "Training"
           },
-          {
-            text: "Claimant ID"
-          },
-          {
-            text: "Amount",
-            format: "numeric"
-          }
-        ],
-        rows: [
-          [
+          items: [
             {
-              html: "<a href='provider'>SMT087737</a>"
+              value: "lorem-ipsum",
+              text: "Lorem ipsum"
             },
             {
-              text: "QQ123456C"
-            },
-            {
-              text: "£109,000",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              html: "<a href='provider'>SMT084629</a>"
-            },
-            {
-              text: "QQ123456C"
-            },
-            {
-              text: "£109,000",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              html: "<a href='provider'>SMT094777</a>"
-            },
-            {
-              text: "QQ123456C"
-            },
-            {
-              text: "£109,000",
-              format: "numeric"
+              value: "dolor-sit-amet",
+              text: "Dolor sit amet",
+              selected: true
             }
           ]
-        ]
-      }) }}
-      {% endset -%}
+        }) }}
 
-      {% set category2html %}
-      <h2 class="govuk-heading-m">Claims by financial year 2020-21</h2>
-      {{ govukTable({
-        firstCellIsHeader: true,
-        head: [
-          {
-            text: "Claim ID"
+        {{ govukSelect({
+          id: "trainee-profile",
+          name: "trainee-profile",
+          label: {
+            text: "Trainee profile"
           },
-          {
-            text: "Claimant ID"
-          },
-          {
-            text: "Amount",
-            format: "numeric"
-          }
-        ],
-        rows: [
-          [
+          items: [
             {
-              html: "<a href='provider'>SMT087737</a>"
+              value: "lorem-ipsum",
+              text: "Lorem ipsum"
             },
             {
-              text: "QQ123456C"
-            },
-            {
-              text: "£109,000",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              html: "<a href='provider'>SMT084629</a>"
-            },
-            {
-              text: "QQ123456C"
-            },
-            {
-              text: "£109,000",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              html: "<a href='provider'>SMT094777</a>"
-            },
-            {
-              text: "QQ123456C"
-            },
-            {
-              text: "£109,000",
-              format: "numeric"
+              value: "dolor-sit-amet",
+              text: "Dolor sit amet",
+              selected: true
             }
           ]
-        ]
-      }) }}
-      {% endset -%}
+        }) }}
 
-
-
-      {{ govukTabs({
-        items: [
-          {
-            label: "Calendar year",
-            id: "category-1",
-            panel: {
-              html: category1html
-            }
+        {{ govukSelect({
+          id: "funding-type",
+          name: "funding-type",
+          label: {
+            text: "Funding type"
           },
-          {
-            label: "Financial year",
-            id: "category-2",
-            panel: {
-              html: category2html
-            }
-          }
-        ]
-      }) }}
-
-      {# {{ govukTable({
-        caption: "All providers under the name Lorem Ipsum",
-        captionClasses: "govuk-heading-m",
-        firstCellIsHeader: true,
-        head: [
-          {
-            text: "Name"
-          },
-          {
-            text: "Status"
-          },
-          {
-            text: "Overall claim",
-            format: "numeric"
-          },
-          {
-            text: "Threshold",
-            format: "numeric"
-          },
-          {
-            text: "Balance",
-            format: "numeric"
-          }
-        ],
-        rows: [
-          [
+          items: [
             {
-              html: "<a href='#'>Ultricies Purus Fermentum</a>"
+              value: "lorem-ipsum",
+              text: "Lorem ipsum"
             },
             {
-              html: "<strong class='govuk-tag govuk-tag--red'>in debit</strong>"
-            },
-            {
-              text: "£550,000",
-              format: "numeric"
-            },
-            {
-              text: "£500,000",
-              format: "numeric"
-            },
-            {
-              text: "-£50,000",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              html: "<a href='#'>Pellentesque Sem</a>"
-            },
-            {
-              html: "<strong class='govuk-tag govuk-tag--green'>in credit</strong>"
-            },
-            {
-              text: "£235,000",
-              format: "numeric"
-            },
-            {
-              text: "£500,000",
-              format: "numeric"
-            },
-            {
-              text: "£265,000",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              html: "<a href='#'>Malesuada Vulputate</a>"
-            },
-            {
-              html: "<strong class='govuk-tag govuk-tag--green'>in credit</strong>"
-            },
-            {
-              text: "£500,000",
-              format: "numeric"
-            },
-            {
-              text: "£500,000",
-              format: "numeric"
-            },
-            {
-              text: "£0",
-              format: "numeric"
+              value: "dolor-sit-amet",
+              text: "Dolor sit amet",
+              selected: true
             }
           ]
-        ]
-      }) }} #}
+        }) }}
 
+        {{ govukSelect({
+          id: "trainee-status",
+          name: "trainee-status",
+          label: {
+            text: "Trainee status"
+          },
+          items: [
+            {
+              value: "lorem-ipsum",
+              text: "Lorem ipsum"
+            },
+            {
+              value: "dolor-sit-amet",
+              text: "Dolor sit amet",
+              selected: true
+            }
+          ]
+        }) }}
+
+      </div>
+
+      {{ govukButton({
+        text: "Apply filters"
+      }) }}
 
     </div>
+
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">Claims</h2>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Claim ID"
+          },
+          {
+            text: "Claimant ID"
+          },
+          {
+            text: "Amount",
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='provider'>SMT087737</a>"
+            },
+            {
+              text: "QQ123456C"
+            },
+            {
+              text: "£109,000",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              html: "<a href='provider'>SMT084629</a>"
+            },
+            {
+              text: "QQ123456C"
+            },
+            {
+              text: "£109,000",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              html: "<a href='provider'>SMT094777</a>"
+            },
+            {
+              text: "QQ123456C"
+            },
+            {
+              text: "£109,000",
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+
+    </div>
+
   </div>
 
 {% endblock %}

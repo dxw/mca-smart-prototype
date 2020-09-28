@@ -4,9 +4,35 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
 
 {% block pageTitle %}
   {{serviceName}}
+{% endblock %}
+
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    navigation: [
+      {
+        href: "/reporting/dashboard-mca",
+        text: "Training providers",
+        active: true
+      },
+      {
+        href: "/onboarding/trainees",
+        text: "Cadets"
+      },
+      {
+        href: "/",
+        text: "Sign out"
+      }
+    ]
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -14,12 +40,15 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
-        All claims
+        Training providers
       </h1>
 
+
+
+
+      {% set trainingProviders %}
+      <h2 class="govuk-heading-m">All current training providers</h2>
       {{ govukTable({
-        caption: "Training providers",
-        captionClasses: "govuk-heading-m",
         firstCellIsHeader: true,
         head: [
           {
@@ -444,6 +473,47 @@
           ]
         ]
       }) }}
+      {% endset -%}
+
+      {% set generateReportHtml %}
+      <h2 class="govuk-heading-m">Generate a report</h2>
+
+      {% endset -%}
+
+
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "All training providers",
+            id: "training-providers",
+            panel: {
+              html: trainingProviders
+            }
+          },
+          {
+            label: "Generate a report",
+            id: "generate-report",
+            panel: {
+              html: generateReportHtml
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </div>
