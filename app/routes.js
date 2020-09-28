@@ -13,7 +13,7 @@ router.post('/auth', function (req, res) {
   if (username === 'mca') {
     res.redirect('dashboard-mca')
   } else {
-    res.redirect('dashboard-tp')
+    res.redirect('anglo-eastern-uk-ltd-tp')
   }
 })
 
