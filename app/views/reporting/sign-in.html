@@ -16,11 +16,11 @@
         Sign in to {{serviceName}}
       </h1>
 
-      <form class="form" action="dashboard-mca" method="post">
+      <form class="form" action="/reporting/auth" method="post">
 
         {{ govukInput({
           label: {
-            text: "Email",
+            text: "Username",
             classes: "govuk-label",
             isPageHeading: false
           },
