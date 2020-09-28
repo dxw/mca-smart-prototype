@@ -11,10 +11,29 @@
   {{serviceName}}
 {% endblock %}
 
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    navigation: [
+      {
+        href: "#",
+        text: "Claims"
+      },
+      {
+        href: "cadets-tp",
+        text: "Cadets",
+        active: true
+      }
+    ]
+  }) }}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "trainees"
+    href: "cadets-tp"
   }) }}
 {% endblock %}
 
@@ -23,13 +42,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
       <h1 class="govuk-heading-xl">
-        Add a trainee
+        Add a cadet
       </h1>
 
-      <form class="form" action="trainees" method="post">
+      <form class="form" action="cadets" method="post">
 
         <h2 class="govuk-heading-m">
-          Trainee ID: QQ123456E
+          Cadet ID: QQ123456E
         </h2>
 
         {{ govukDateInput({
@@ -38,6 +57,21 @@
           fieldset: {
             legend: {
               text: "Start date",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "For example, 12 11 2007"
+          }
+        }) }}
+
+        {{ govukDateInput({
+          id: "end-date",
+          namePrefix: "end-date",
+          fieldset: {
+            legend: {
+              text: "Proposed end date",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--s"
             }
@@ -102,7 +136,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Add trainee"
+          text: "Add cadet"
         }) }}
 
       </form>

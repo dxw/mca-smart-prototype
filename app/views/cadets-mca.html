@@ -37,20 +37,30 @@
       </h1>
 
 
+      {{ govukInput({
+        label: {
+          text: "Find a cadet by NI number",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        },
+        id: "event-name",
+        name: "event-name",
+        classes: "govuk-input--width-10"
+      }) }}
+
       {{ govukButton({
-        text: "Add a trainee",
-        href: "new-trainee"
+        text: "Find cadet"
       }) }}
 
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
       {{ govukTable({
-        caption: "All trainees",
+        caption: "All cadets",
         captionClasses: "govuk-heading-m",
         firstCellIsHeader: true,
         head: [
           {
-            text: "Trainee ID"
+            text: "Cadet ID"
           },
           {
             text: "Start date"
@@ -68,7 +78,7 @@
         rows: [
           [
             {
-              html: "<a href='trainee-unconfirmed'>QQ123456C</a>"
+              html: "<a href='cadet-unconfirmed'>QQ123456C</a>"
             },
             {
               text: "20 Oct 2020"
@@ -85,7 +95,7 @@
           ],
           [
             {
-              html: "<a href='trainee-confirmed'>QQ123457D</a>"
+              html: "<a href='cadet-confirmed'>QQ123457D</a>"
             },
             {
               text: "20 Oct 2020"
@@ -101,6 +111,12 @@
             }
           ]
         ]
+      }) }}
+
+
+      {{ govukButton({
+        text: "Add a cadet",
+        href: "new-cadet-mca"
       }) }}
 
 

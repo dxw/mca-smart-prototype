@@ -1,0 +1,147 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    navigation: [
+      {
+        href: "dashboard-mca",
+        text: "Training providers"
+      },
+      {
+        href: "cadets-mca",
+        text: "Cadets",
+        active: true
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "cadets-mca"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <h1 class="govuk-heading-xl">
+        Add a cadet
+      </h1>
+
+      <form class="form" action="cadets" method="post">
+
+        <h2 class="govuk-heading-m">
+          Cadet ID: QQ123456E
+        </h2>
+
+        {{ govukDateInput({
+          id: "start-date",
+          namePrefix: "start-date",
+          fieldset: {
+            legend: {
+              text: "Start date",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "For example, 12 11 2007"
+          }
+        }) }}
+
+        {{ govukDateInput({
+          id: "end-date",
+          namePrefix: "end-date",
+          fieldset: {
+            legend: {
+              text: "Proposed end date",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "For example, 12 11 2007"
+          }
+        }) }}
+
+        {{ govukSelect({
+          id: "programme",
+          name: "programme",
+          label: {
+            text: "Programme"
+          },
+          items: [
+            {
+              value: "cursus-ullamcorper-ornare",
+              text: "Cursus Ullamcorper Ornare",
+              selected: true
+            },
+            {
+              value: "cras-adipiscing",
+              text: "Cras Adipiscing"
+            },
+            {
+              value: "condimentum-consectetur-ultricies",
+              text: "Condimentum Consectetur Ultricies"
+            },
+            {
+              value: "mattis-fermentum",
+              text: "Mattis Fermentum"
+            }
+          ]
+        }) }}
+
+        {{ govukSelect({
+          id: "sponsoring-company",
+          name: "sponsoring-company",
+          label: {
+            text: "Sponsoring company"
+          },
+          items: [
+            {
+              value: "justo-ligula-etiam",
+              text: "Justo Ligula Etiam",
+              selected: true
+            },
+            {
+              value: "ligula-nullam-fusce-mollis",
+              text: "Ligula Nullam Fusce Mollis"
+            },
+            {
+              value: "pharetra-pellentesque",
+              text: "Pharetra Pellentesque"
+            },
+            {
+              value: "nullam-nibh-justo",
+              text: "Nullam Nibh Justo"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Add cadet"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
