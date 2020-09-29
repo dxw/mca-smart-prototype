@@ -49,82 +49,82 @@
       <div class="filter-section">
 
         <h1 class="govuk-heading-s">
-          Filter by:
+          Filter claims by:
         </h1>
 
         {{ govukSelect({
-          id: "training",
-          name: "training",
+          id: "programme",
+          name: "programme",
           label: {
-            text: "Training"
+            text: "Programme"
           },
           items: [
             {
-              value: "lorem-ipsum",
-              text: "Lorem ipsum"
+              value: "Fringilla Dolor Cras Vulputate",
+              text: "Fringilla Dolor Cras Vulputate",
+              selected: true
             },
             {
-              value: "dolor-sit-amet",
-              text: "Dolor sit amet",
-              selected: true
+              value: "Malesuada Porta Parturient",
+              text: "Malesuada Porta Parturient"
             }
           ]
         }) }}
 
         {{ govukSelect({
-          id: "cadet-profile",
-          name: "cadet-profile",
+          id: "route",
+          name: "route",
           label: {
-            text: "Cadet profile"
+            text: "Route"
           },
           items: [
             {
-              value: "lorem-ipsum",
-              text: "Lorem ipsum"
+              value: "Ultricies Porta Tristique Egestas",
+              text: "Ultricies Porta Tristique Egestas",
+              selected: true
             },
             {
-              value: "dolor-sit-amet",
-              text: "Dolor sit amet",
-              selected: true
+              value: "Magna Sollicitudin Ultricies",
+              text: "Magna Sollicitudin Ultricies"
             }
           ]
         }) }}
 
         {{ govukSelect({
-          id: "funding-type",
-          name: "funding-type",
+          id: "no-of-trainees-per-programme",
+          name: "no-of-trainees-per-programme",
           label: {
-            text: "Funding type"
+            text: "Number of trainees per programme"
           },
           items: [
             {
-              value: "lorem-ipsum",
-              text: "Lorem ipsum"
+              value: "1–10",
+              text: "1–10",
+              selected: true
             },
             {
-              value: "dolor-sit-amet",
-              text: "Dolor sit amet",
-              selected: true
+              value: "11-20",
+              text: "11-20"
             }
           ]
         }) }}
 
         {{ govukSelect({
-          id: "cadet-status",
-          name: "cadet-status",
+          id: "no-of-trainees-per-route",
+          name: "no-of-trainees-per-route",
           label: {
-            text: "Cadet status"
+            text: "Number of trainees per route"
           },
           items: [
-            {
-              value: "lorem-ipsum",
-              text: "Lorem ipsum"
-            },
-            {
-              value: "dolor-sit-amet",
-              text: "Dolor sit amet",
-              selected: true
-            }
+          {
+            value: "1–10",
+            text: "1–10",
+            selected: true
+          },
+          {
+            value: "11-20",
+            text: "11-20"
+          }
           ]
         }) }}
 
